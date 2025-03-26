@@ -31,7 +31,7 @@ Struktura projektu
 
 📦 Konfiguracja bazy danych (MySQL)
 
-docker run --name mysql-spring -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=systemcrud -e MYSQL_USER=root -e MYSQL_PASSWORD=dawid -p 3306:3306 -d mysql:8.0
+docker run --name SystemCRUD -e MYSQL_ROOT_PASSWORD=dawid -d -p 3306:3306 mysql
 
 
 
