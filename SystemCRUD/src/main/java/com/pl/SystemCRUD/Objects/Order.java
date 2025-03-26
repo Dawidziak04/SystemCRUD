@@ -13,16 +13,17 @@ public class Order {
     private int orderID;
 
     @ManyToOne
-    @JoinColumn(name = "customer_id", nullable = false)
+    @JoinColumn(name = "customer_id", referencedColumnName = "customerID", nullable = false)
     private Customer orderedBy;
 
+    @Column(name = "orderName")
     private String orderName;
+
+    @Column(name = "orderDescription")
     private String orderDescription;
+
+    @Column(name = "orderValue")
     private double orderValue;
-
-    @Version
-    private Integer version = 0;
-
 
     public Order() {}
 

@@ -15,9 +15,6 @@ public class Customer {
     private String name;
     private String surname;
 
-    @Version
-    private Integer version = 0;
-
     public Customer() {}
 
     public Customer(String name, String surname) {
