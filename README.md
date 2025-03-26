@@ -29,9 +29,30 @@ Struktura projektu
 │── README.md             # Dokumentacja projektu
 
 
-📦 Konfiguracja bazy danych (MySQL)
+📦 Przykładowa konfiguracja docker'a
 
 docker run --name SystemCRUD -e MYSQL_ROOT_PASSWORD=dawid -d -p 3306:3306 mysql
+
+📦 Przykładowe dane do wstawienia do bazy danych (MySQL)
+
+-- Wybór bazy danych
+USE SystemCRUD;
+
+-- Wstawianie przykładowych klientów
+INSERT INTO customers (customerid, name, surname) VALUES
+(1, 'Jan', 'Kowalski'),
+(2, 'Anna', 'Nowak'),
+(3, 'Piotr', 'Wiśniewski'),
+(4, 'Katarzyna', 'Dąbrowska'),
+(5, 'Marek', 'Lewandowski');
+
+-- Wstawianie przykładowych zamówień
+INSERT INTO orders (orderid, order_description, order_name, order_value, customer_id) VALUES
+(1, 'Zakup laptopa', 'Laptop Dell', 4500.00, 1),
+(2, 'Zakup telefonu', 'iPhone 13', 3800.00, 2),
+(3, 'Zakup telewizora', 'Samsung 55"', 3200.00, 3),
+(4, 'Zakup roweru', 'Rower górski', 2700.00, 4),
+(5, 'Zakup konsoli', 'PlayStation 5', 3000.00, 5);
 
 
 
