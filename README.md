@@ -38,6 +38,13 @@ Widok szczegółowy klienta:
 ✅ Lista jego zamówień
 ✅ Przekierowanie do strony głównej
 
+![{B72CC983-046C-4BEC-9A31-9271202CBD24}](https://github.com/user-attachments/assets/8107c752-6e47-4d98-8392-110947edfe61)
+![{C20ED09F-3E32-457B-B36E-78A74478AF6F}](https://github.com/user-attachments/assets/484494d5-0467-4ace-92b0-37cb80a63c42)
+![{0560C48C-F045-4BA1-83AF-F036394E0348}](https://github.com/user-attachments/assets/b49cf59c-7755-48cd-bfe4-1019c34a0007)
+
+
+
+
 🎨 CSS
 
 - Estetyczne przyciski i inputy
