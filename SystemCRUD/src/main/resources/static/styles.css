@@ -1,0 +1,148 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    background: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+button {
+    background: dimgrey;
+    border: none;
+    padding: 12px 20px;
+    margin: 10px;
+    color: white;
+    font-size: 16px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    animation: bounce 1s ease;
+    animation-iteration-count: 1;
+    background: darkslategrey;
+    transform: scale(1.05);
+}
+
+input {
+    padding: 12px;
+    width: 250px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #6e8efb;
+    box-shadow: 0px 0px 8px rgba(110, 142, 251, 0.5);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+li {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 220px;
+    text-align: center;
+    font-weight: bold;
+    color: #444;
+    transition: 0.3s;
+}
+
+li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes bounceInUp {
+    from,
+    60%,
+    75%,
+    90%,
+    to {
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    from {
+        opacity: 0;
+        transform: translate3d(0, 3000px, 0) scaleY(5);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translate3d(0, -20px, 0) scaleY(0.9);
+    }
+
+    75% {
+        transform: translate3d(0, 10px, 0) scaleY(0.95);
+    }
+
+    90% {
+        transform: translate3d(0, -5px, 0) scaleY(0.985);
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.bounceInUp {
+    animation-name: bounceInUp;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+}
+
+@keyframes bounce {
+    from,
+    20%,
+    53%,
+    to {
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        transform: translate3d(0, 0, 0);
+    }
+
+    40%,
+    43% {
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        transform: translate3d(0, -30px, 0) scaleY(1.1);
+    }
+
+    70% {
+        animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+        transform: translate3d(0, -15px, 0) scaleY(1.05);
+    }
+
+    80% {
+        transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+        transform: translate3d(0, 0, 0) scaleY(0.95);
+    }
+
+    90% {
+        transform: translate3d(0, -4px, 0) scaleY(1.02);
+    }
+}
+
+.bounce {
+    animation-name: bounce;
+    transform-origin: center bottom;
+}
