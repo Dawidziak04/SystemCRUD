@@ -5,11 +5,11 @@ Użytkownicy mogą przeglądać, dodawać i usuwać klientów oraz zamówienia z
 
 🚀 Funkcjonalności
 
-✔️ Pobieranie listy klientów i ich zamówień.
-✔️ Dodawanie, usuwanie klientów oraz zamówień.
-✔️ Wyszukiwanie klientów po ID.
-✔️ Automatyczna nawigacja do szczegółów klienta.
-✔️ Frontend oparty na HTML, CSS i JavaScript.
+- Pobieranie listy klientów i ich zamówień.
+- Dodawanie, usuwanie klientów oraz zamówień.
+- Wyszukiwanie klientów po ID.
+- Automatyczna nawigacja do szczegółów klienta.
+- Frontend oparty na HTML, CSS i JavaScript.
 
 🛠 Technologie
 
@@ -26,17 +26,17 @@ Frontend:
 
 🎨 Frontend – Interfejs użytkownika
 
-1️⃣ CustomerManagementUI.html
+CustomerManagementUI.html:
 Strona główna aplikacji, zawiera:
-✅ Pobieranie listy klientów i zamówień
-✅ Dodawanie i usuwanie klientów oraz zamówień
-✅ Wyszukiwanie klientów po ID
+- Pobieranie listy klientów i zamówień.
+- Dodawanie i usuwanie klientów oraz zamówień.
+- Wyszukiwanie klientów po ID.
 
-2️⃣ customer.html
+customer.html:
 Widok szczegółowy klienta:
-✅ Wyświetlanie danych klienta
-✅ Lista jego zamówień
-✅ Przekierowanie do strony głównej
+- Wyświetlanie danych klienta.
+- Lista jego zamówień.
+- Przekierowanie do strony głównej.
 
 ![{B72CC983-046C-4BEC-9A31-9271202CBD24}](https://github.com/user-attachments/assets/8107c752-6e47-4d98-8392-110947edfe61)
 ![{C20ED09F-3E32-457B-B36E-78A74478AF6F}](https://github.com/user-attachments/assets/484494d5-0467-4ace-92b0-37cb80a63c42)
