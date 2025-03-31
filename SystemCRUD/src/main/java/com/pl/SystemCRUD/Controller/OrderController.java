@@ -35,8 +35,17 @@ public class OrderController {
         return orderService.getOrdersByCustomerID(customerID);
     }
 
-   // @GetMapping("/editOrder")
-   // public
+   @PutMapping("/editOrder")
+    public ResponseEntity<Order> updateOrder(@RequestBody Order order){
+    Order updatedOrder = orderService.updateOrder(order);
+       if (updatedOrder != null) {
+           return new ResponseEntity<>(updatedOrder, HttpStatus.OK);
+       }
+       else {
+           return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+       }
+
+   }
 
    @PostMapping("/postOrder")
     public Order postOrder(@RequestBody Order order) {

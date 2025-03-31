@@ -17,12 +17,20 @@ function fetchOrderDetails(orderID) {
             return response.json();
         })
         .then(order => {
+
+            // Showing data on the site
             document.getElementById("order-id-display").textContent = order.orderID;
+            document.getElementById("ordered-by-display").textContent =
+                `Zamówione przez (ID): ${order.orderedBy.customerID}, Imię: ${order.orderedBy.name}, Nazwisko: ${order.orderedBy.surname}`;
             document.getElementById("order-name-display").textContent = order.orderName;
             document.getElementById("order-description-display").textContent = order.orderDescription;
             document.getElementById("order-value-display").textContent = order.orderValue;
 
+            // Setting a values to the forms
             document.getElementById("order-id").value = order.orderID;
+            document.getElementById("ordered-by").value = order.orderedBy.customerID;
+            document.getElementById("ordered-by-name").value = order.orderedBy.name;
+            document.getElementById("ordered-by-surname").value = order.orderedBy.surname;
             document.getElementById("order-name").value = order.orderName;
             document.getElementById("order-description").value = order.orderDescription;
             document.getElementById("order-value").value = order.orderValue;
@@ -38,11 +46,17 @@ document.getElementById("order-form").addEventListener("submit", function(event)
     event.preventDefault();
 
     const updatedOrder = {
-        orderID: document.getElementById("order-id").value,
+        orderID: parseInt(document.getElementById("order-id").value),
+        orderedBy: {
+            customerID: parseInt(document.getElementById("ordered-by").value),
+            name: document.getElementById("ordered-by-name").value,
+            surname: document.getElementById("ordered-by-surname").value
+        },
         orderName: document.getElementById("order-name").value,
         orderDescription: document.getElementById("order-description").value,
         orderValue: parseFloat(document.getElementById("order-value").value)
     };
+
 
     fetch(`${API_URL}/editOrder`, {
         method: "PUT",

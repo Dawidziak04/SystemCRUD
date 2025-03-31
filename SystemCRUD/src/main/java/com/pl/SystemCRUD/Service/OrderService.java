@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OrderService {
@@ -44,8 +45,18 @@ public class OrderService {
         return false;
     }
 
-    /* public Order updateOrder(Order order) {
-
+    public Order updateOrder(Order updatedOrder) {
+        Optional<Order> existingOrder = orderRepository.findByOrderID(updatedOrder.getOrderID());
+        if (existingOrder.isPresent()) {
+            Order orderToUpdate = existingOrder.get();
+            orderToUpdate.setOrderID(updatedOrder.getOrderID());
+            orderToUpdate.setOrderedBy(updatedOrder.getOrderedBy());
+            orderToUpdate.setOrderName(updatedOrder.getOrderName());
+            orderToUpdate.setOrderDescription(updatedOrder.getOrderDescription());
+            orderToUpdate.setOrderValue(updatedOrder.getOrderValue());
+            orderRepository.save(orderToUpdate);
+            return orderToUpdate;
+        }
+        return null;
     }
-    */
 }
