@@ -35,6 +35,9 @@ public class OrderController {
         return orderService.getOrdersByCustomerID(customerID);
     }
 
+   // @GetMapping("/editOrder")
+   // public
+
    @PostMapping("/postOrder")
     public Order postOrder(@RequestBody Order order) {
     return orderService.addOrder(order);

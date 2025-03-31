@@ -72,6 +72,25 @@ li:hover {
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
 }
 
+textarea {
+    padding: 12px;
+    width: 250px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+    resize: none;
+    height: 100px;
+}
+
+textarea:focus {
+    border-color: #6e8efb;
+    box-shadow: 0px 0px 8px rgba(110, 142, 251, 0.5);
+}
+
+
 @keyframes bounceInUp {
     from,
     60%,

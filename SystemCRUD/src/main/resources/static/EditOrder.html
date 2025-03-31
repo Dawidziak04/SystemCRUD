@@ -1,18 +1,46 @@
 <!--
-Still in development
- -->
+Still in development!
+-->
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Szczegóły Klienta</title>
+    <title>Edycja Zamówienia</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<h1>Szczegóły Klienta</h1>
+<h1>Edycja Zamówienia</h1>
 
+<div id="order-details">
+    <h2>Aktualne Szczegóły Zamówienia:</h2>
+    <p><strong>ID:</strong> <span id="order-id-display"></span></p>
+    <p><strong>Nazwa:</strong> <span id="order-name-display"></span></p>
+    <p><strong>Opis:</strong> <span id="order-description-display"></span></p>
+    <p><strong>Wartość:</strong> <span id="order-value-display"></span> PLN</p>
+</div>
+
+<div id="edit-form">
+    <h2>Edytuj Zamówienie:</h2>
+    <form id="order-form">
+        <input type="hidden" id="order-id">
+
+        <label for="order-name">Nazwa:</label>
+        <input type="text" id="order-name" required>
+        <br>
+        <label for="order-description">Opis:</label>
+        <textarea id="order-description" required></textarea>
+        <br>
+        <label for="order-value">Wartość (PLN):</label>
+        <input type="number" step="0.01" id="order-value" required>
+        <br>
+        <button type="submit">Zapisz zmiany</button>
+        <button type="button" onclick="window.history.back()">Anuluj</button>
+    </form>
+</div>
+
+<script src="EditOrder.js"></script>
 </body>
 </html>

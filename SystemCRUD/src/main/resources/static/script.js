@@ -105,7 +105,8 @@ function fetchOrders() {
                     `;
 
                     li.addEventListener('click', () => {
-                        window.location.href = `customer.html?id=${order.orderedBy.customerID}`;
+                        //li.style.cursor = "pointer";
+                        window.location.href = `EditOrder.html?id=${order.orderID}`;
                     });
 
                     orderList.appendChild(li);
@@ -135,7 +136,7 @@ function addOrder() {
 
     const order = {
         orderedBy: {
-            customerID: orderedBy  // ID klienta
+            customerID: orderedBy
         },
         orderName: orderName,
         orderDescription: orderDescription,
