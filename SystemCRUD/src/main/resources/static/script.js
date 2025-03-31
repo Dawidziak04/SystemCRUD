@@ -1,19 +1,45 @@
 const API_URL = "http://localhost:8080";
 
 function fetchCustomers() {
-    fetch(`${API_URL}/customers`)
-        .then(response => response.json())
-        .then(data => {
-            const list = document.getElementById("customer-list");
-            list.innerHTML = "";
-            data.forEach(customer => {
-                const li = document.createElement("li");
-                li.innerHTML = `<a href="customer.html?id=${customer.customerID}">ID: ${customer.customerID} - ${customer.name} ${customer.surname}</a>`;
-                list.appendChild(li);
-            });
+    fetch('http://localhost:8080/customers')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Nie udało się pobrać klientów.");
+            }
+            return response.json();
         })
-        .catch(error => console.error("Błąd:", error));
+        .then(customers => {
+            console.log(customers);
+            const customerList = document.getElementById("customer-list");
+            customerList.innerHTML = "";
+
+            const noCustomersElement = document.getElementById("no-customers");
+
+            if (customers.length === 0) {
+                if (noCustomersElement) {
+                    noCustomersElement.style.display = "block";
+                }
+            } else {
+                if (noCustomersElement) {
+                    noCustomersElement.style.display = "none";
+                }
+
+                customers.forEach(customer => {
+                    const li = document.createElement("li");
+                    li.innerHTML = `<a href="customer.html?id=${customer.customerID}">ID: ${customer.customerID} - ${customer.name} ${customer.surname}</a>`;
+                    customerList.appendChild(li);
+                });
+            }
+        })
+        .catch(error => {
+            console.error("Błąd:", error);
+            const noCustomersElement = document.getElementById("no-customers");
+            if (noCustomersElement) {
+                noCustomersElement.style.display = "block";
+            }
+        });
 }
+
 
 function addCustomer() {
     const name = document.getElementById("customer-name").value;
