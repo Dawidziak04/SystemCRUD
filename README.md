@@ -1,13 +1,13 @@
 📌 Opis projektu
 
-SystemCRUD to aplikacja webowa oparta na Spring Boot (REST API) oraz interfejsie użytkownika w HTML, CSS i JavaScript, umożliwiająca zarządzanie klientami oraz ich zamówieniami.
-Użytkownicy mogą przeglądać, dodawać i usuwać klientów oraz zamówienia zarówno przez interfejs graficzny, jak i bezpośrednio przez API.
+OrderManagement to aplikacja webowa oparta na Spring Boot (REST API) oraz interfejsie użytkownika w HTML, CSS i JavaScript, umożliwiająca zarządzanie klientami i ich zamówieniami.
+Użytkownicy mogą przeglądać, dodawać, edytować i usuwać klientów oraz zamówienia zarówno przez interfejs graficzny, jak i bezpośrednio przez API.
 
 🚀 Funkcjonalności
 
 - Pobieranie listy klientów i ich zamówień.
-- Dodawanie, usuwanie klientów oraz zamówień.
-- Wyszukiwanie klientów po ID.
+- Dodawanie, edytowanie, usuwanie klientów oraz zamówień.
+- Wyszukiwanie klientów i zamówień po ID.
 - Automatyczna nawigacja do szczegółów klienta.
 - Frontend oparty na HTML, CSS i JavaScript.
 
@@ -26,22 +26,28 @@ Frontend:
 
 🎨 Frontend – Interfejs użytkownika
 
-CustomerManagementUI.html:
-Strona główna aplikacji, zawiera:
+OrderManagement.html (Strona główna aplikacji):
 - Pobieranie listy klientów i zamówień.
 - Dodawanie i usuwanie klientów oraz zamówień.
-- Wyszukiwanie klientów po ID.
+- Wyszukiwanie klientów i zamówień po ID.
+![{B72CC983-046C-4BEC-9A31-9271202CBD24}](https://github.com/user-attachments/assets/8107c752-6e47-4d98-8392-110947edfe61)
+![{C20ED09F-3E32-457B-B36E-78A74478AF6F}](https://github.com/user-attachments/assets/484494d5-0467-4ace-92b0-37cb80a63c42)
 
-customer.html:
-Widok szczegółowy klienta:
+customer.html (Widok szczegółowy klienta):
 - Wyświetlanie danych klienta.
 - Lista jego zamówień.
 - Przekierowanie do strony głównej.
-
-![{B72CC983-046C-4BEC-9A31-9271202CBD24}](https://github.com/user-attachments/assets/8107c752-6e47-4d98-8392-110947edfe61)
-![{C20ED09F-3E32-457B-B36E-78A74478AF6F}](https://github.com/user-attachments/assets/484494d5-0467-4ace-92b0-37cb80a63c42)
 ![{0560C48C-F045-4BA1-83AF-F036394E0348}](https://github.com/user-attachments/assets/b49cf59c-7755-48cd-bfe4-1019c34a0007)
 
+editOrder.html (Edycja zamówienia):
+- Formularz do edycji szczegółów zamówienia.
+- Możliwość zapisania zmian.
+![image](https://github.com/user-attachments/assets/5c592327-1b2f-474d-8398-b57b840e25b8)
+
+
+editCustomer.html (Edycja klienta):
+- Formularz do edycji danych klienta.
+- Możliwość zapisania zmian.
 
 
 
@@ -54,20 +60,24 @@ Widok szczegółowy klienta:
 📂 Struktura projektu
 
 ```bash
-   SystemCRUD/
-│── src/main/java/com/pl/SystemCRUD/
+OrderManagement/
+│── src/main/java/com/pl/OrderManagement/
 │   ├── Controller/       # Kontrolery REST API
 │   ├── Objects/          # Klasy encji JPA
 │   ├── Repositories/     # Repozytoria JPA
 │   ├── Service/          # Logika biznesowa
-│   ├── SystemCrudApplication.java  # Punkt startowy aplikacji
+│   ├── OrderManagementApplication.java  # Punkt startowy aplikacji
 │── src/main/resources/static/  # Pliki frontendowe
-│   ├── CustomerManagementUI.html  # Strona główna interfejsu
+│   ├── OrderManagement.html  # Strona główna interfejsu
 │   ├── customer.html  # Szczegóły klienta i jego zamówień
+│   ├── editOrder.html  # Formularz edycji zamówienia
+│   ├── editCustomer.html  # Formularz edycji klienta
 │   ├── script.js  # Logika interakcji z API (klienci, zamówienia)
 │   ├── customer.js  # Logika interakcji z API (szczegóły klienta)
+│   ├── editOrder.js  # Logika interakcji z API (edycja zamówienia)
+│   ├── editCustomer.js  # Logika interakcji z API (edycja klienta)
 │   ├── styles.css  # Stylizacja interfejsu
-│── src/test/java/com/pl/SystemCRUD/ # Testy jednostkowe (Mockito)
+│── src/test/java/com/pl/OrderManagement/ # Testy jednostkowe (Mockito)
 │── pom.xml               # Konfiguracja Maven
 │── README.md             # Dokumentacja projektu
 ```
@@ -112,6 +122,7 @@ INSERT INTO orders (orderid, order_description, order_name, order_value, custome
 ```sql
 GET /customers - Pobiera listę klientów
 POST /customers - Dodaje nowego klienta
+PUT /editCustomer - Edytuje istniejącego już klienta
 GET /customers/{id} - Pobiera klienta po ID
 DELETE /deleteCustomer/{id} - Usuwa klienta po ID
 ```
@@ -119,6 +130,7 @@ DELETE /deleteCustomer/{id} - Usuwa klienta po ID
 ```sql
 GET /orders - Pobiera listę zamówień
 POST /orders - Tworzy nowe zamówienie
+PUT /editOrder - Edytuje istniujące już zamówienie
 GET /orders/{id} - Pobiera zamówienie po ID
 GET /orders/customer/{id} - Pobiera zamówienia klienta
 DELETE /deleteOrder/{id} - Usuwa zamówienie po ID
