@@ -39,7 +39,9 @@ OrderManagement.html (Strona główna aplikacji):
 - Pobieranie listy klientów i zamówień.
 - Dodawanie i usuwanie klientów oraz zamówień.
 - Wyszukiwanie klientów i zamówień po ID.
+
 ![image](https://github.com/user-attachments/assets/3164ead7-d831-477e-aa32-5df787afc2ae)
+
 
 ![{C20ED09F-3E32-457B-B36E-78A74478AF6F}](https://github.com/user-attachments/assets/484494d5-0467-4ace-92b0-37cb80a63c42)
 
@@ -48,18 +50,21 @@ customer.html (Widok szczegółowy klienta):
 - Lista jego zamówień.
 - Przekierowanie do strony głównej.
 - Przycisk edycji danych klienta.
+
 ![image](https://github.com/user-attachments/assets/88ec0605-c9cd-4c71-88b2-5c53b4e8b44c)
 
 
 editOrder.html (Edycja zamówienia):
 - Formularz do edycji szczegółów zamówienia.
 - Możliwość zapisania zmian.
+
 ![image](https://github.com/user-attachments/assets/5c592327-1b2f-474d-8398-b57b840e25b8)
 
 
 editCustomer.html (Edycja klienta):
 - Formularz do edycji danych klienta.
 - Możliwość zapisania zmian.
+
 ![image](https://github.com/user-attachments/assets/5524f8f9-7ecf-4788-9d85-30380ca07c56)
 
 
