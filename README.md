@@ -10,12 +10,21 @@ Użytkownicy mogą przeglądać, dodawać, edytować i usuwać klientów oraz za
 - Wyszukiwanie klientów i zamówień po ID.
 - Automatyczna nawigacja do szczegółów klienta.
 - Frontend oparty na HTML, CSS i JavaScript.
+- Logowanie użytkowników (Hasła szyfrowane Bcrypt'em).
+- Autoryzacja dostępu do zasobów backendu.
+
+🔐 Bezpieczeństwo
+
+- Hasła użytkowników są szyfrowane za pomocą BCrypt.
+- Endpointy REST chronione przez mechanizm uwierzytelniania i autoryzacji.
+- Możliwość logowania użytkowników z poziomu formularza frontendowego (do rozbudowy).
+- Ograniczenie dostępu do danych dla nieautoryzowanych żądań.
 
 🛠 Technologie
 
 Backend:
 - Java 17+.
-- Spring Boot 3+ (Spring Web, Spring Data JPA, Spring Validation).
+- Spring Boot 3+ (Spring Web, Spring Data JPA, Spring Validation, Spring Security).
 - MySQL + Hibernate.
 - Mockito + JUnit 5.
 - Docker (opcjonalnie).
@@ -30,14 +39,17 @@ OrderManagement.html (Strona główna aplikacji):
 - Pobieranie listy klientów i zamówień.
 - Dodawanie i usuwanie klientów oraz zamówień.
 - Wyszukiwanie klientów i zamówień po ID.
-![{B72CC983-046C-4BEC-9A31-9271202CBD24}](https://github.com/user-attachments/assets/8107c752-6e47-4d98-8392-110947edfe61)
+![image](https://github.com/user-attachments/assets/3164ead7-d831-477e-aa32-5df787afc2ae)
+
 ![{C20ED09F-3E32-457B-B36E-78A74478AF6F}](https://github.com/user-attachments/assets/484494d5-0467-4ace-92b0-37cb80a63c42)
 
 customer.html (Widok szczegółowy klienta):
 - Wyświetlanie danych klienta.
 - Lista jego zamówień.
 - Przekierowanie do strony głównej.
-![{0560C48C-F045-4BA1-83AF-F036394E0348}](https://github.com/user-attachments/assets/b49cf59c-7755-48cd-bfe4-1019c34a0007)
+- Przycisk edycji danych klienta.
+![image](https://github.com/user-attachments/assets/88ec0605-c9cd-4c71-88b2-5c53b4e8b44c)
+
 
 editOrder.html (Edycja zamówienia):
 - Formularz do edycji szczegółów zamówienia.
@@ -48,6 +60,7 @@ editOrder.html (Edycja zamówienia):
 editCustomer.html (Edycja klienta):
 - Formularz do edycji danych klienta.
 - Możliwość zapisania zmian.
+![image](https://github.com/user-attachments/assets/5524f8f9-7ecf-4788-9d85-30380ca07c56)
 
 
 
@@ -60,13 +73,34 @@ editCustomer.html (Edycja klienta):
 📂 Struktura projektu
 
 ```bash
-OrderManagement/
-│── src/main/java/com/pl/OrderManagement/
-│   ├── Controller/       # Kontrolery REST API
-│   ├── Objects/          # Klasy encji JPA
-│   ├── Repositories/     # Repozytoria JPA
-│   ├── Service/          # Logika biznesowa
-│   ├── OrderManagementApplication.java  # Punkt startowy aplikacji
+com/pl/OrderManagement
+├── config # Konfiguracja aplikacji
+│   └── SpringSecurityConfiguration.java           # Konfiguracja zabezpieczeń aplikacji (Spring Security)
+│
+├── controller  # Warstwa kontrolerów obsługująca żądania HTTP
+│   ├── AdministratorController.java               # Obsługuje endpointy związane z administratorem
+│   ├── CustomerController.java                    # Obsługuje endpointy związane z klientami
+│   └── OrderController.java                       # Obsługuje endpointy związane z zamówieniami
+│
+├── model # Klasy encji (JPA) i POJO
+│   ├── Administrator.java                         # Encja administratora (JPA)
+│   ├── AdministratorPrincipal.java                # Implementacja UserDetails dla administratora (autoryzacja)
+│   ├── Customer.java                              # Encja klienta (JPA)
+│   └── Order.java                                 # Encja zamówienia (JPA)
+│
+├── repository # Interfejsy (JPARepository)
+│   ├── AdministratorRepository.java               # Interfejs JPA do operacji CRUD na administratorze
+│   ├── CustomerRepository.java                    # Interfejs JPA do operacji CRUD na kliencie
+│   └── OrderRepository.java                       # Interfejs JPA do operacji CRUD na zamówieniach
+│
+├── service # Logika aplikacji
+│   ├── AdministratorService.java                  # Logika biznesowa dla administratora (np. rejestracja z haszowaniem)
+│   ├── CustomerService.java                       # Logika biznesowa dla klienta
+│   ├── CustomUserDetailsService.java              # Ładowanie danych użytkownika przy logowaniu (dla Spring Security)
+│   └── OrderService.java                          # Logika biznesowa dla zamówień
+│
+└── OrderManagementApplication.java                # Główna klasa uruchamiająca aplikację Spring Boot
+│
 │── src/main/resources/static/  # Pliki frontendowe
 │   ├── OrderManagement.html  # Strona główna interfejsu
 │   ├── customer.html  # Szczegóły klienta i jego zamówień
@@ -79,7 +113,6 @@ OrderManagement/
 │   ├── styles.css  # Stylizacja interfejsu
 │── src/test/java/com/pl/OrderManagement/ # Testy jednostkowe (Mockito)
 │── pom.xml               # Konfiguracja Maven
-│── README.md             # Dokumentacja projektu
 ```
 
 
@@ -134,4 +167,8 @@ PUT /editOrder - Edytuje istniujące już zamówienie
 GET /orders/{id} - Pobiera zamówienie po ID
 GET /orders/customer/{id} - Pobiera zamówienia klienta
 DELETE /deleteOrder/{id} - Usuwa zamówienie po ID
+```
+📌 Rejestrowanie nowych użytkowników (/register)
+```sql
+POST /register - Rejestruje nowego użytkownika
 ```
