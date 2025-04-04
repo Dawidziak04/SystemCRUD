@@ -69,7 +69,7 @@ document.getElementById("order-form").addEventListener("submit", function(event)
         })
         .then(() => {
             alert("Zamówienie zostało zaktualizowane!");
-            window.history.back();
+            window.location.href = `OrderManagement.html`;
         })
         .catch(error => {
             console.error("Błąd:", error);

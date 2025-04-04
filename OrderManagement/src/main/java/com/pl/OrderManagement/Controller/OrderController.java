@@ -4,20 +4,23 @@ package com.pl.OrderManagement.Controller;
 import com.pl.OrderManagement.Objects.Order;
 import com.pl.OrderManagement.Repositories.OrderRepository;
 import com.pl.OrderManagement.Service.OrderService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class OrderController {
 
-    @Autowired
-    OrderService orderService;
-    @Autowired
-    private OrderRepository orderRepository;
+    private final OrderService orderService;
+    private final OrderRepository orderRepository;
+
+    public OrderController(OrderService orderService, OrderRepository orderRepository) {
+        this.orderService = orderService;
+        this.orderRepository = orderRepository;
+    }
 
     @GetMapping("/orders")
     public List<Order> getOrders(){
@@ -25,10 +28,10 @@ public class OrderController {
     }
 
     @GetMapping("/orders/{orderID}")
-    public Order getOrder(@PathVariable int orderID) {
-        return orderRepository.getById(orderID);
+    public ResponseEntity<Order> getOrder(@PathVariable int orderID) {
+        Optional<Order> choosenOrder = orderRepository.findById(orderID);
+        return choosenOrder.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.status(HttpStatus.NOT_FOUND).body(null));
     }
-
     @GetMapping("customerOrders/{customerID}")
     public List<Order> getOrdersByCustomerID(@PathVariable int customerID) {
         return orderService.getOrdersByCustomerID(customerID);

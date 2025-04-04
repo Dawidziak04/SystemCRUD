@@ -6,7 +6,6 @@ import com.pl.OrderManagement.Objects.Order;
 import com.pl.OrderManagement.Repositories.CustomerRepository;
 import com.pl.OrderManagement.Repositories.OrderRepository;
 import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,11 +14,14 @@ import java.util.Optional;
 @Service
 public class OrderService {
 
-    @Autowired
-    OrderRepository orderRepository;
+    private final OrderRepository orderRepository;
 
-    @Autowired
-    CustomerRepository customerRepository;
+    private final CustomerRepository customerRepository;
+
+    public OrderService(OrderRepository orderRepository, CustomerRepository customerRepository) {
+        this.orderRepository = orderRepository;
+        this.customerRepository = customerRepository;
+    }
 
     public List<Order> getAllOrders(){
        return orderRepository.findAll();

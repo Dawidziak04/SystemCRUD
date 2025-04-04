@@ -2,10 +2,14 @@ package com.pl.OrderManagement.Objects;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-@Entity
 @Table(name = "customers")
+@Entity
+@Getter
+@Setter
 public class Customer {
 
     @Id
@@ -21,28 +25,4 @@ public class Customer {
         this.name = name;
         this.surname = surname;
     }
-
-    public int getCustomerID() {
-        return customerID;
     }
-
-    public void setCustomerID(int customerID) {
-        this.customerID = customerID;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-}

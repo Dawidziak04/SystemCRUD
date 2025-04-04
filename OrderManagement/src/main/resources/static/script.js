@@ -165,6 +165,18 @@ function deleteOrder() {
         .catch(error => console.error("Błąd:", error));
 }
 
+function searchOrder() {
+    const orderID = document.getElementById("order-ID").value;
+
+    if (!orderID || isNaN(orderID)) {
+        alert("Proszę wpisać poprawne ID zamówienia!");
+        return;
+    }
+
+    window.location.href = `EditOrder.html?id=${orderID}`;
+}
+
+
 
 
 

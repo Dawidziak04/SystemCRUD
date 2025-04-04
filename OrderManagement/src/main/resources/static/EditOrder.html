@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edycja Zamówienia</title>
+    <title>Edycja zamówienia</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
 <h1>Edycja Zamówienia</h1>
 
 <div id="order-details">
-    <h2>Aktualne Szczegóły Zamówienia:</h2>
+    <h2>Aktualne szczegóły zamówienia:</h2>
     <p><strong>ID:</strong> <span id="order-id-display"></span></p>
     <p><strong>Zamówione przez: </strong> <span id="ordered-by-display"></span></p>
     <p><strong>Nazwa:</strong> <span id="order-name-display"></span></p>
@@ -21,7 +21,7 @@
 </div>
 
 <div id="edit-form">
-    <h2>Edytuj Zamówienie:</h2>
+    <h2>Edytuj zamówienie:</h2>
     <form id="order-form">
         <input type="hidden" id="order-id">
         <input type="hidden" id="ordered-by">
@@ -41,7 +41,7 @@
         <input type="number" step="0.01" id="order-value" required>
         <br>
         <button type="submit">Zapisz zmiany</button>
-        <button type="button" onclick="window.history.back()">Anuluj</button>
+        <button type="button" onclick="window.location.href = 'OrderManagement.html' ">Anuluj</button>
     </form>
 </div>
 

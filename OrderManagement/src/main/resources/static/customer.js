@@ -54,6 +54,11 @@ function fetchCustomerDetails() {
                         <strong>Opis:</strong> ${order.orderDescription}<br>
                         <strong>Wartość:</strong> ${order.orderValue} PLN
                     `;
+
+                    li.addEventListener('click', () => {
+                        window.location.href = `EditOrder.html?id=${order.orderID}`;
+                    });
+
                     orderList.appendChild(li);
                 });
             }
@@ -63,4 +68,21 @@ function fetchCustomerDetails() {
         });
 }
 
-fetchCustomerDetails();
+function redirectToEditCustomer() {
+    if (!customerID) {
+        alert("Błąd: Brak ID klienta.");
+        return;
+    }
+    window.location.href = `EditCustomer.html?id=${customerID}`;
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    fetchCustomerDetails();
+    const editButton = document.getElementById("edit-customer-redirection");
+
+    if (editButton) {
+        editButton.addEventListener("click", redirectToEditCustomer);
+    } else {
+        console.error("Przycisk 'Edytuj klienta' nie został znaleziony w DOM.");
+    }
+});

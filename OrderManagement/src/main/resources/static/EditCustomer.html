@@ -1,14 +1,40 @@
-<!--
-Still in development!
--->
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edycja Klienta</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+<h1>Edycja Klienta</h1>
+
+<div id="customer-details">
+    <h2>Aktualne szczegóły klienta:</h2>
+    <p><strong>ID Klienta:</strong> <span id="customer-id-display"></span></p>
+    <p><strong>Imię:</strong> <span id="customer-name-display"></span></p>
+    <p><strong>Nazwisko:</strong> <span id="customer-surname-display"></span></p>
+</div>
+
+<div id="edit-form">
+    <h2>Edytuj klienta:</h2>
+    <form id="customer-form">
+        <input type="hidden" id="customer-id">
+
+        <label for="customer-name">Imię:</label>
+        <br>
+        <input type="text" id="customer-name" required>
+        <br>
+        <label for="customer-surname">Nazwisko:</label>
+        <br>
+        <input type="text" id="customer-surname" required>
+        <br>
+        <button type="submit">Zapisz zmiany</button>
+        <button type="button" onclick="onclick=window.location.href = 'OrderManagement.html'">Anuluj</button>
+    </form>
+</div>
+
+<script src="EditCustomer.js"></script>
 </body>
 </html>

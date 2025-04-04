@@ -15,7 +15,6 @@
 <p id="no-customers" style="display: none;">Brak klientów</p>
 <p id="no-orders" style="display: none;">Brak zamówień</p>
 
-
 <h2 class="bounceInUp">Dodaj Klienta</h2>
 <input type="text" id="customer-name" placeholder="Imię">
 <input type="text" id="customer-surname" placeholder="Nazwisko">
@@ -28,18 +27,22 @@
 <input type="number" step="0.01" id="order-value" placeholder="Wartość w PLN">
 <button onclick="addOrder()">Dodaj</button>
 
-<h2 class="bounceInUp">Wyszukaj klienta po ID</h2>
+<h2 class="bounceInUp">Wyszukaj klienta / zamówienie po ID</h2>
 <input type="number" id="customer-ID" placeholder="Wpisz ID klienta">
-<button onclick="searchCustomer()">Znajdź</button>
+<button onclick="searchCustomer()">Znajdź klienta</button>
+
+<input type="number" id="order-ID" placeholder="Wpisz ID zamówienia">
+<button onclick="searchOrder()">Znajdź zamówienie</button>
+
 <div id="customer-info"></div>
 
-<h2 class="bounceInUp">Usuń Klienta</h2>
+<h2 class="bounceInUp">Usuń Klienta / Zamówienie</h2>
 <input type="number" id="customer-id" placeholder="ID klienta">
-<button onclick="deleteCustomer()">Usuń</button>
+<button onclick="deleteCustomer()">Usuń klienta</button>
 
-<h2 class="bounceInUp">Usuń zamówienie</h2>
 <input type="number" id="order-id" placeholder="ID zamówienia">
-<button onclick="deleteOrder()">Usuń</button>
+<button onclick="deleteOrder()">Usuń zamówienie</button>
+
 
 <script src="script.js"></script>
 </body>
